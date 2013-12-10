@@ -1,0 +1,17 @@
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+h1 {
+  /* position:relative; */
+  float:left;
+  clear:none;
+  display:inline;
+  width: 80%;
+  font-family: 'Open Sans Condensed', sans-serif;
+  text-transform:uppercase;
+}
+
+.active {
+  stroke: orange;
+}
