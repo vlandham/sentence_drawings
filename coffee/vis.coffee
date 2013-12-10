@@ -52,6 +52,7 @@ Plot = () ->
       .attr("class", "line")
       .attr("stroke", mColor)
       .attr("stroke-width", 3)
+      .attr("stroke-linecap", "round")
       .attr("d", (d) -> "M#{xScale(d.x1)},#{yScale(d.y1)}L#{xScale(d.x2)},#{yScale(d.y2)}")
       .on("mouseover", mouseOver)
       .on("mouseout", mouseOut)
@@ -114,7 +115,6 @@ root.plotData = (selector, data, plot) ->
 # http://stackoverflow.com/questions/11166195/regex-that-splits-long-text-in-separate-sentences-with-match
 sentenceLengths = (text) ->
   text = text.replace(/['\"\‘\’]/gm,"")
-  console.log(text)
   tregex = /\n|([^\r\n.!?]+([.!?]+|$))/gim
   sentences = text.match(tregex).map((s) -> s.trim())
   data = []
@@ -162,6 +162,7 @@ texts = {
   'gatsby':{'title':'The Great Gatsby', 'file':'great_gatsby.txt', 'color':'#D1A145'}
   'brave':{'title':'Brave New World', 'file':'brave_new_world.txt', 'color':'#70A4F2'}
   'rye':{'title':'The Catcher in the Rye', 'file':'rye.txt', 'color':'#7B5749'}
+  'room':{'title':'A Room of One\'s Own', 'file':'room.txt', 'color':'#95B6E8'}
 }
 
 setupText = (text) ->
