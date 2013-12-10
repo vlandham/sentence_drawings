@@ -3,15 +3,24 @@ body {
 }
 
 h1 {
-  /* position:relative; */
+  /* position:absolute; */
+  font-size: 44px;
   float:left;
   clear:none;
   display:inline;
-  width: 80%;
+  width: 40%;
   font-family: 'Open Sans Condensed', sans-serif;
   text-transform:uppercase;
 }
 
+#vis {
+}
+
 .active {
   stroke: orange;
+}
+
+#text_select {
+  float:right;
+  margin-top: 10px;
 }

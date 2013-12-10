@@ -6,7 +6,7 @@ Plot = () ->
   height = 800
   data = []
   lines = null
-  margin = {top: 30, right: 30, bottom: 30, left: 60}
+  margin = {top: 30, right: 30, bottom: 80, left: 60}
   xScale = d3.scale.linear().domain([0,10]).range([0,width])
   yScale = d3.scale.linear().domain([0,10]).range([height,0])
   xValue = (d) -> parseFloat(d.x)
@@ -57,7 +57,7 @@ Plot = () ->
       .on("mouseout", mouseOut)
 
     $('svg .line').tipsy({
-      gravity:'s'
+      gravity:'n'
       html:true
       title: () ->
         d = this.__data__
@@ -156,10 +156,10 @@ findPositions = (data, lengthAttribute = "length", turn = -Math.PI / 2.0) ->
       
   data
 
-texts = [
-  {'title':'The Great Gatsby', 'file':'great_gatsby.txt', 'color':'#D1A145'}
-  {'title':'Brave New World', 'file':'brave_new_world.txt', 'color':'#70A4F2'}
-]
+texts = {
+  'gatsby':{'title':'The Great Gatsby', 'file':'great_gatsby.txt', 'color':'#D1A145'}
+  'brave':{'title':'Brave New World', 'file':'brave_new_world.txt', 'color':'#70A4F2'}
+}
 
 setupText = (text) ->
   d3.select("#name").html(text.title)
@@ -167,7 +167,13 @@ setupText = (text) ->
 
 $ ->
 
-  current = texts[0]
+  id = decodeURIComponent(location.hash.substring(1)).trim()
+  if !id
+    id = 'gatsby'
+    location.replace("#" + encodeURIComponent(id))
+  current = texts[id]
+  $("#text_select").val(id)
+
 
   plot = Plot()
   display = (error, text) ->
@@ -180,4 +186,12 @@ $ ->
   queue()
     .defer(d3.text, "text/#{current.file}")
     .await(display)
+
+  $("#text_select").on "change", (e) ->
+    id = $(this).val()
+    location.replace("#" + encodeURIComponent(id))
+    url = window.location.href
+    console.log(url)
+    window.location.href = url
+    window.location.reload()
 
