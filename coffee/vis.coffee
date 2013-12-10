@@ -113,6 +113,8 @@ root.plotData = (selector, data, plot) ->
 # quick hack to split sentences. most of the hard work came from:
 # http://stackoverflow.com/questions/11166195/regex-that-splits-long-text-in-separate-sentences-with-match
 sentenceLengths = (text) ->
+  text = text.replace(/['\"\‘\’]/gm,"")
+  console.log(text)
   tregex = /\n|([^\r\n.!?]+([.!?]+|$))/gim
   sentences = text.match(tregex).map((s) -> s.trim())
   data = []
@@ -159,6 +161,7 @@ findPositions = (data, lengthAttribute = "length", turn = -Math.PI / 2.0) ->
 texts = {
   'gatsby':{'title':'The Great Gatsby', 'file':'great_gatsby.txt', 'color':'#D1A145'}
   'brave':{'title':'Brave New World', 'file':'brave_new_world.txt', 'color':'#70A4F2'}
+  'rye':{'title':'The Catcher in the Rye', 'file':'rye.txt', 'color':'#7B5749'}
 }
 
 setupText = (text) ->
