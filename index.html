@@ -18,7 +18,6 @@
   <!-- CSS concatenated and minified via ant build script-->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="css/tipsy.css">
   <link rel="stylesheet" href="css/style.css">
   <!-- end CSS-->
 
@@ -34,10 +33,14 @@
         <option value="brave">Brave New World</option>
         <option value="rye">The Catcher in the Rye</option>
         <option value="room">A Room of One's Own</option>
+        <option value="farewell">A Farewell to Arms</option>
       </select>
 
       <h1 id="name"></h1>
       <div id="vis"></div>
+      <div id="footer">
+        <p>Sentence Drawings is an original Data Art project by <a href="http://www.itsbeenreal.co.uk/index.php?/wwwords/sentence-drawings/">Stefanie Posavec</a>.<br/>Here, we experiment with algorithmic production of these same representations.<br/>Code is originally from <a href="http://www.r-bloggers.com/sentence-drawing-function-vs-art/">Tyler Rinker</a>. <a href="https://github.com/vlandham/sentence_drawings">My version</a> is a slight derivative written in D3.<br/>Hover over line for original sentence it represents.</p>
+      </div>
     </div>
   </div> <!--! end of #container -->
 
@@ -52,7 +55,7 @@
   <script src="js/libs/d3.v3.js"></script>
   <script src="js/libs/queue.min.js"></script>
   <script src="js/complex.js"></script>
-  <script src="js/jquery.tipsy.js"></script>
+  <script src="js/CustomTooltip.js"></script>
   <script type="text/coffeescript" src="coffee/vis.coffee"></script>
   <script type="text/javascript">
     $(document).ready(function() {
