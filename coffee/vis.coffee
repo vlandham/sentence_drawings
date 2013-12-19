@@ -178,6 +178,7 @@ texts = {
   'rye':{'title':'The Catcher in the Rye', 'file':'rye.txt', 'color':'#7B5749'}
   'room':{'title':'A Room of One\'s Own', 'file':'room.txt', 'color':'#95B6E8'}
   'farewell':{'title':'A Farewell to Arms', 'file':'farewell.txt', 'color':'#657782'}
+  '1984':{'title':'Nineteen Eighty-Four', 'file':'1984.txt', 'color':'#DF4C42'}
 }
 
 setupText = (text) ->
